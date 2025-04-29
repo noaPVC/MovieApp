@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #242747;
+    font-family: "Poppins", sans-serif;
+
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1.5rem;
+
+    width: 100%;
+    padding: 1rem 0 .7rem .5rem;
+    
+    position: sticky;
+    top: 0;
+
+    transform: translateY(-3px);
+    transition: transform .3s ease;
+
+    background-color: #242747ab;
+    border-bottom: .5px solid #43487a;
+    z-index: 10;
+    
+    backdrop-filter: blur(3px);
+}
+
+header p {
+    font-family: 'Cal Sans', sans-serif;
+
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: white;
+}
+
+header .brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header .brand img {
+    width: 34px;
+    aspect-ratio: 1 / 1;
+}
+
+/* search input */
+
+.search {
+    background: none;
+
+    padding: .45rem .85rem;
+    outline: none;
+
+    border: 1px solid #515692;
+    border-radius: 25px;
+    color: white;
+
+    font-size: .8rem;
+    line-height: .8rem;
+
+    background: #6166a329;
+    backdrop-filter: blur(1px);
+
+    width: 30%;
+    transform: translateX(0);
+
+    transition: transform .3s ease, width .3s ease;
+}
+
+.search.active {
+    transform: translateX(-45%);
+    width: 50%;
+
+    transition: transform .3s ease, width .3s ease;
+}
+
+.search:hover, .search:focus {
+    outline: none;
+}
+
+.search::placeholder {
+    color: rgb(201, 201, 201);
+}
+
+/* content style definitions */
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    max-width: 1160px;
+    width: 100%;
+    margin: 0 1.5rem;
+}
+
+main {
+    display: grid;
+    grid-gap: 1.5rem;
+    justify-content: center;
+    
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+
+    padding: 0 .2rem;
+    margin-bottom: 1.5rem;
+}
+
+.movie {
+    border-radius: 3px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    
+    overflow: hidden;
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 1280 / 1899;
+    
+    cursor: pointer;
+}
+
+.movie.ghost {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.movie img {
+    width: 100%;
+}
+
+/* modal style definitions */
+
+.modal-container {
+    position: fixed;
+
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.721);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-container.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal {
+    display: flex;
+    color: black;
+    background-color: white;
+    width: 800px;
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+.modal-container .modal img {
+    max-width: 200px;
+    margin-right: 2rem;
+}
+
+.modal .info .title {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.modal .info {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.close {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* responsive design */
+
+@media (max-width: 650px) {
+    
+    header .brand img {
+        width: 25px;
+    }
+
+    header .brand p {
+        font-size: 1rem;
+    }
+
+    header .search {
+        transform: translateX(0) !important;
+        font-size: .7em;
+    }
+}
+
+@media (max-width: 370px) {
+
+    header {
+        padding: .7rem .5rem .5rem .5rem;
+    }
+    
+    header .brand img {
+        width: 25px;
+    }
+
+    header .brand p {
+        display: none;
+    }
+
+    header .search {
+        width: 100% !important;
+    }
+
+    .content-container {
+        margin: 0 0;
+    }
+
+    main {
+        padding: 0 .7rem;
+    }
+}
+  

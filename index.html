@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieApp</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
+
+    <!-- this defines window._env_ -->
+    <script src="config.js"></script>
+    
+    <script defer src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="content-container">
+        <header>
+            <div class="brand">
+                <img src="/assets/logo.png" alt="logo">
+                <p>MovieApp</p>
+            </div>
+
+            <input type="text" id="search" placeholder="Search" class="search" />
+        </header>
+    
+        <main id="main">
+            <!--later appending movies here-->
+        </main>
+    
+        <div class="modal-container" id="modal">
+            <div class="modal">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
